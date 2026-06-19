@@ -20,6 +20,11 @@
     <RootNamespace>Equalizer</RootNamespace>
   </PropertyGroup>
 
+  <!-- Faza 1: przechwytywanie/odtwarzanie WASAPI przez NAudio. -->
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
   <!--
     Konfiguracja pod pojedynczy plik .exe (self-contained, dwuklik i dziala).
     Build do dystrybucji:
