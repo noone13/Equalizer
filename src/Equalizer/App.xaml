@@ -1,0 +1,9 @@
+<Application x:Class="Equalizer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+        Brak StartupUri: aplikacja startuje do traya, nie pokazuje okna od razu.
+        Cykl zycia (tray, menu, zamykanie) obslugiwany w App.xaml.cs.
+    -->
+    <Application.Resources />
+</Application>
