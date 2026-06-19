@@ -8,7 +8,9 @@ namespace Equalizer;
 /// Punkt wejscia aplikacji. Faza 0: aplikacja startuje do traya, bez audio.
 /// Okno ustawien otwierane z menu traya. Autostart przelaczany w oknie.
 /// </summary>
-public partial class App : Application
+// 'Application' i 'MessageBox' istnieja zarowno w WPF jak i w WinForms - stad
+// jawne kwalifikacje System.Windows.* tam, gdzie odwolujemy sie do wersji WPF.
+public partial class App : System.Windows.Application
 {
     private WinForms.NotifyIcon? _trayIcon;
     private SettingsWindow? _settingsWindow;

@@ -35,7 +35,8 @@ public partial class SettingsWindow : Window
         }
         catch (Exception ex)
         {
-            MessageBox.Show(
+            // MessageBox istnieje tez w WinForms - jawnie wskazujemy wersje WPF.
+            System.Windows.MessageBox.Show(
                 this,
                 "Nie udało się zmienić autostartu:\n" + ex.Message,
                 "Equalizer",
