@@ -1,0 +1,86 @@
+<Window x:Class="Equalizer.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Equalizer — Ustawienia"
+        Height="460" Width="480"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#FF1E1E1E">
+
+    <!-- Faza 1: wybor wejscia (kabel) i wyjscia (sluchawki), Start/Stop, Bypass. -->
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Equalizer"
+                   Foreground="White"
+                   FontSize="24"
+                   FontWeight="SemiBold" />
+
+        <TextBlock Grid.Row="1"
+                   Margin="0,4,0,0"
+                   Text="Faza 1 — przechwycenie + bypass (bez EQ)"
+                   Foreground="#FFB0B0B0"
+                   FontSize="13" />
+
+        <!-- Wejscie: skad bierzemy dzwiek (urzadzenie nagrywajace = CABLE Output). -->
+        <StackPanel Grid.Row="2" Margin="0,20,0,0">
+            <TextBlock Text="Wejście (wirtualny kabel — „CABLE Output”)"
+                       Foreground="#FFCCCCCC" FontSize="12" Margin="0,0,0,4" />
+            <ComboBox x:Name="CaptureCombo"
+                      DisplayMemberPath="FriendlyName"
+                      Height="28" />
+        </StackPanel>
+
+        <!-- Wyjscie: dokad oddajemy (realne sluchawki). NIGDY domyslne = kabel. -->
+        <StackPanel Grid.Row="3" Margin="0,14,0,0">
+            <TextBlock Text="Wyjście (realne słuchawki)"
+                       Foreground="#FFCCCCCC" FontSize="12" Margin="0,0,0,4" />
+            <ComboBox x:Name="RenderCombo"
+                      DisplayMemberPath="FriendlyName"
+                      Height="28" />
+        </StackPanel>
+
+        <!-- Sterowanie. -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,18,0,0">
+            <Button x:Name="StartStopButton"
+                    Content="Start"
+                    Width="100" Height="34"
+                    Click="StartStopButton_Click" />
+            <CheckBox x:Name="BypassCheckBox"
+                      Content="Bypass (przepuść 1:1)"
+                      Foreground="White"
+                      VerticalAlignment="Center"
+                      Margin="18,0,0,0"
+                      IsChecked="True"
+                      Checked="BypassCheckBox_Changed"
+                      Unchecked="BypassCheckBox_Changed" />
+        </StackPanel>
+
+        <!-- Status (raportowany poza watkiem audio). -->
+        <Border Grid.Row="5" Margin="0,18,0,0" Padding="12"
+                CornerRadius="8" Background="#FF2A2A2A" VerticalAlignment="Top">
+            <TextBlock x:Name="StatusText"
+                       Text="Zatrzymane."
+                       Foreground="#FFB0B0B0" FontSize="12"
+                       TextWrapping="Wrap" />
+        </Border>
+
+        <!-- Autostart (z Fazy 0). -->
+        <CheckBox Grid.Row="6"
+                  x:Name="AutostartCheckBox"
+                  Content="Uruchamiaj razem z systemem"
+                  Foreground="#FF808080"
+                  FontSize="12"
+                  Checked="AutostartCheckBox_Changed"
+                  Unchecked="AutostartCheckBox_Changed" />
+    </Grid>
+</Window>

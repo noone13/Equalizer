@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Faza 0 - szkielet. Czysta aplikacja WPF startujaca do traya, bez audio.
+    TargetFramework: net10.0-windows (najnowszy stabilny SDK autora).
+    Jesli budujesz na innej wersji, zmien te jedna linie na swoja (np. net8.0-windows).
+  -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+
+    <!-- WPF na okno ustawien, WinForms tylko dla ikony w trayu (NotifyIcon). -->
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+
+    <AssemblyName>Equalizer</AssemblyName>
+    <RootNamespace>Equalizer</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Faza 1: przechwytywanie/odtwarzanie WASAPI przez NAudio. -->
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+  <!--
+    Konfiguracja pod pojedynczy plik .exe (self-contained, dwuklik i dziala).
+    Build do dystrybucji:
+      dotnet publish -c Release -r win-x64
+    Zwykly build deweloperski wystarczy:
+      dotnet build
+  -->
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+</Project>
