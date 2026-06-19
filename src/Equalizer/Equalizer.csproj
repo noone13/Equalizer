@@ -2,12 +2,12 @@
 
   <!--
     Faza 0 - szkielet. Czysta aplikacja WPF startujaca do traya, bez audio.
-    TargetFramework: net8.0-windows (LTS, szeroko zainstalowany). Jesli masz
-    nowszy stabilny SDK (np. net10.0-windows) wystarczy zmienic te jedna linie.
+    TargetFramework: net10.0-windows (najnowszy stabilny SDK autora).
+    Jesli budujesz na innej wersji, zmien te jedna linie na swoja (np. net8.0-windows).
   -->
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>

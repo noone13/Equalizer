@@ -12,7 +12,7 @@ Czysta aplikacja WPF startująca do zasobnika systemowego (tray). **Bez audio.**
 ## Wymagania
 
 - Windows (build i uruchomienie tylko na Windows — WPF/WinForms).
-- .NET SDK 8.0 (lub nowszy; wtedy zmień `TargetFramework` w `Equalizer.csproj`).
+- .NET SDK 10.0 (lub inny; wtedy zmień `TargetFramework` w `Equalizer.csproj`).
 
 ## Uruchomienie deweloperskie
 
@@ -27,7 +27,7 @@ dotnet run
 dotnet publish -c Release -r win-x64
 ```
 
-Plik `Equalizer.exe` znajdziesz w `bin/Release/net8.0-windows/win-x64/publish/`.
+Plik `Equalizer.exe` znajdziesz w `bin/Release/net10.0-windows/win-x64/publish/`.
 
 ## Definicja ukończenia Fazy 0
 
