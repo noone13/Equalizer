@@ -42,7 +42,7 @@ wirtualny kabel.
 
 ## Status faz
 
-- [ ] Faza 0 — szkielet (tray, okno ustawień, autostart). Zero audio.
+- [x] Faza 0 — szkielet (tray, okno ustawień, autostart). Zero audio. ✅ przetestowane na Win11 / .NET 10
 - [ ] Faza 1 — przechwycenie + bypass (moment prawdy). Patrz `faza-1-md.md`.
 - [ ] Faza 2 — DSP / EQ (biquad peaking, do 10 pasm).
 - [ ] Faza 3 — obsługa wyjścia przewodowego + rozłączenie urządzenia (BT wycięty).
